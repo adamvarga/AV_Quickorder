@@ -1,0 +1,40 @@
+<?php $maxRow = Mage::getStoreConfig('av_quickorder/general/rows'); ?>
+<?php $msg = $this->__('Maximum amount of rows is %s', $maxRow) ?>
+<div class="container">
+    <h1><?php echo $this->__('Quickorder'); ?></h1>
+    <form action="<?php echo Mage::helper('av_quickorder')->getQuickorderUrl(); ?>" id="quick-order">
+        <div class="form-row form-origin">
+            <div class="col col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <input type="text" class="form-control" name="order[0][sku]" placeholder="<?php echo $this->__('SKU') ?>" value="">
+            </div>
+            <div class="col col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <input type="text" class="form-control" name="order[0][quantity]" placeholder="<?php echo $this->__('Quantity') ?>" value="">
+            </div>
+        </div>
+        <div class="col col-lg-6 col-md-6 col-sm-6 col-xs-6 submit-action">
+            <input type="submit" class="btn btn-primary" value="Submit">
+        </div>
+    </form>
+    <div class="col col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <button type="button" class="btn btn-primary addrow"><span><?php echo $this->__('Add new row'); ?></span></button>
+    </div>
+</div>
+
+<script type='text/javascript'>
+    jQuery(document).ready(function() {
+        var i = 0;
+        jQuery('.addrow').click(function(e) {
+            i++;
+            var nameSku = 'order[' + i + '][sku]';
+            var nameQty = 'order[' + i + '][quantity]';
+            var nameRow = '<div class="col col-lg-6 col-md-6 col-sm-6 col-xs-6"><input type="text" class="form-control" name="' + nameSku + '"placeholder="<?php echo $this->__('SKU') ?>" value=""></div>';
+            var qtyRow = '<div class="col col-lg-6 col-md-6 col-sm-6 col-xs-6"><input type="text" class="form-control" name="' + nameQty + '"placeholder="<?php echo $this->__('Quantity') ?>" value=""></div>';
+            var newRow = '<div class="form-row">' + nameRow + qtyRow + '</div>';
+            jQuery('#quick-order .form-origin').append(newRow);
+            if (i == (<?php echo $maxRow ?> - 1)) {
+                jQuery(this).attr("disabled", "disabled");
+                alert('<?php echo $msg; ?>');
+            }
+        });
+    });
+</script>

@@ -1,0 +1,10 @@
+{
+    "name":"av/quickorder",
+    "type":"magento-module",
+    "license":"OSL-3.0",
+    "homepage":"https://github.com/adamvarga/AV_Quickorder",
+    "description":"Frontend quick product order with sku and quantity",
+    "require":{
+        "magento-hackathon/magento-composer-installer":"*"
+    }
+}

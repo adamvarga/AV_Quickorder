@@ -1,0 +1,9 @@
+app/code/local/AV/Quickorder/                                                   app/code/local/AV/Quickorder/ 
+app/etc/modules/AV_Quickorder.xml                                               app/etc/modules/AV_Quickorder.xml 
+app/locale/de_DE/AV_Quickorder.csv                                              app/locale/de_DE/AV_Quickorder.csv
+app/design/frontend/base/default/layout/quickorder.xml                          app/design/frontend/base/default/layout/quickorder.xml 
+app/design/frontend/base/default/template/quickorder/                           app/design/frontend/base/default/template/quickorder/
+js/quickorder/                                                                  js/quickorder
+
+
+

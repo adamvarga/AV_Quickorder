@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<layout>
+    <default>
+        <reference name="head">
+            <action method="addJs">
+                <script>quickorder/jquery-3.1.1.min.js</script>
+            </action>
+            <action method="addJs">
+                <script>quickorder/noconflict.js</script>
+            </action>
+        </reference>
+    </default>
+    <av_quickorder_index_index>
+        <reference name="content">
+            <block type="core/template" name="quick.order" as="quickOrder" template="quickorder/order.phtml"/>
+        </reference>
+    </av_quickorder_index_index>
+</layout>
