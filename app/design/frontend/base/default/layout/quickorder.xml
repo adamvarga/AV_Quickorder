@@ -11,6 +11,13 @@
         </reference>
     </default>
     <av_quickorder_index_index>
+        <reference name="root">
+            <reference name="root">
+                <action method="setTemplate">
+                    <template>page/1column.phtml</template>
+                </action>
+            </reference>
+        </reference>
         <reference name="content">
             <block type="core/template" name="quick.order" as="quickOrder" template="quickorder/order.phtml"/>
         </reference>
