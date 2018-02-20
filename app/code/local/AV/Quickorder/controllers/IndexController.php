@@ -19,7 +19,8 @@ class AV_Quickorder_IndexController extends Mage_Core_Controller_Front_Action {
         $cart = Mage::getSingleton('checkout/cart');
 
         foreach ($order as $orderdetails) {
-            if ($orderdetails['sku'] != '' && $orderdetails['quantity'] > 0) {
+            $id = Mage::getModel('catalog/product')->getIdBySku($orderdetails['sku']);
+            if ($orderdetails['sku'] != '' && false !== $id && $orderdetails['quantity'] > 0) {
                 $orders[] = array(
                     'product' => Mage::getModel('catalog/product')->getIdBySku($orderdetails['sku']),
                     'sku' => $orderdetails['sku'],
@@ -30,7 +31,6 @@ class AV_Quickorder_IndexController extends Mage_Core_Controller_Front_Action {
                 Mage::getSingleton('core/session')->addError($message);
             }
         }
-
         try {
             if ($orders) {
                 foreach ($orders as $_order) {
