@@ -9,7 +9,7 @@ class AV_Quickorder_IndexController extends Mage_Core_Controller_Front_Action {
             $this->loadLayout();
             $this->renderLayout();
         } else {
-            $this->_redirect("/");
+            $this->_forward('noRoute');
         }
     }
 
@@ -49,10 +49,6 @@ class AV_Quickorder_IndexController extends Mage_Core_Controller_Front_Action {
             $this->_redirectReferer();
             Mage::getSingleton('core/session')->addError($ex->getMessage() . '<br>' . 'Sku: ' . $sku);
         }
-    }
-
-    public function postAction() {
-        $this->orderAction();
     }
 
 }
